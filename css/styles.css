@@ -1,0 +1,97 @@
+/* General Styles */
+body {
+    font-family: 'Orbitron', sans-serif; /* Cyberpunk font */
+    background: linear-gradient(45deg, #000428, #004e92); /* Deep blue gradient background */
+    color: #ffffff; /* Light text color for readability */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden; /* Prevent scrollbars */
+    position: relative; /* Positioning context for background animations */
+}
+
+/* Background Animation */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255, 20, 147, 0.2), transparent); /* Vibrant pink pulse */
+    animation: pulse 10s infinite ease-in-out;
+    z-index: -1;
+}
+
+@keyframes pulse {
+    0% {
+        background: radial-gradient(circle, rgba(255, 20, 147, 0.2), transparent);
+    }
+    50% {
+        background: radial-gradient(circle, rgba(255, 20, 147, 0.4), transparent);
+    }
+    100% {
+        background: radial-gradient(circle, rgba(255, 20, 147, 0.2), transparent);
+    }
+}
+
+/* Text Area */
+#inputField {
+    width: 90vw; /* Increased width */
+    height: 60vh; /* Fixed height */
+    background: #1e1e1e; /* Dark background with vibrant neon accents */
+    color: #00ffea; /* Neon cyan text */
+    border: 2px solid #ff00ff; /* Neon magenta border */
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(0, 255, 234, 0.8), 0 0 20px rgba(255, 0, 255, 0.8); /* Neon glow effect */
+    font-size: 1.2em;
+    resize: none;
+    outline: none; /* Remove default outline */
+    position: relative; /* Positioning context for text area animations */
+    transition: box-shadow 0.3s ease;
+}
+
+#inputField:focus {
+    box-shadow: 0 0 30px rgba(0, 255, 234, 1), 0 0 30px rgba(255, 0, 255, 1); /* Brighter glow on focus */
+}
+
+/* Suggestions List */
+#suggestionsList {
+    position: absolute;
+    background: #1e1e1e; /* Dark background for the suggestions list */
+    border: 2px solid #ff00ff; /* Neon magenta border */
+    border-radius: 12px;
+    max-width: 90vw; /* Match width with text area */
+    max-height: 200px; /* Limit height */
+    overflow-y: auto; /* Scroll if necessary */
+    box-shadow: 0 0 20px rgba(255, 0, 255, 0.8); /* Neon glow effect */
+    z-index: 1000;
+    top: calc(60vh + 20px); /* Position below the text area */
+    transition: opacity 0.3s ease;
+}
+
+#suggestionsList.fade-in {
+    opacity: 1;
+}
+
+#suggestionsList.fade-out {
+    opacity: 0;
+}
+
+/* Suggestion Items */
+#suggestionsList li {
+    padding: 15px; /* Increased padding */
+    color: #00ffea; /* Neon cyan text */
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+}
+
+/* Highlighted Suggestion */
+#suggestionsList li.highlight {
+    background-color: #ff00ff; /* Neon magenta background for highlighted item */
+    color: #ffffff; /* White text for highlighted item */
+}
