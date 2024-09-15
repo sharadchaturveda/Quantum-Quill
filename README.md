@@ -12,7 +12,7 @@
 
 1. **Clone the Repository:**
     ```bash
-    git clone https://github.com/yourusername/quantum-quill.git
+    git clone https://github.com/sharadchaturveda/Quantum-Quill.git
     ```
 2. **Navigate to the Project Directory:**
     ```bash
